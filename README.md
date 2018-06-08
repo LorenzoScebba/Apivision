@@ -1,5 +1,7 @@
 # APIVision
 
+Demo : http://scaleway.scebba.info/APIVision/index.php
+
 Add a config.ini file in the root dir
 Setup :
 
