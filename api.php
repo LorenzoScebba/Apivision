@@ -11,7 +11,7 @@
     <div class="container">
         <p class="text-center">
             You can use the api by doing a GET request on the webpage<a
-                    href="Api/index.php"> <?php echo($url !== null ? "http://" . $url . "Api/" : "http://localhost/APIVision/Api") ?></a>
+                    href="Api/index.php"> <?php echo($url !== null ? "http://" . $url . "/Api/" : "http://localhost/APIVision/Api") ?></a>
         </p>
         <p>Requested <B>GET</B> Parameters </p>
         <table class="table">
