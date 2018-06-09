@@ -1,6 +1,6 @@
 # APIVision
 
-Demo : http://scaleway.scebba.info/APIVision/index.php
+Demo : http://scaleway.scebba.info/index.php
 
 Add a config.ini file in a private folder (cgi-bin), one level below the web folder.
 Setup :
