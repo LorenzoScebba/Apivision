@@ -6,8 +6,8 @@
  * Time: 09:25
  */
 
-include_once '../model/config.php';
-$ini = parse_ini_file("../config.ini",false,INI_SCANNER_RAW);
+session_start();
+$ini = parse_ini_file($_SERVER["DOCUMENT_ROOT"]."/../cgi-bin/config.ini",false,INI_SCANNER_RAW);
 $url = $ini["url"];
 $connection = mysqli_connect($ini["dbname"], $ini["dbusername"], $ini["dbpassword"], $ini["dbtable"]);
 if (!$connection) {

@@ -7,5 +7,5 @@
  */
 
 session_start();
-$ini = parse_ini_file("config.ini",false,INI_SCANNER_RAW);
+$ini = parse_ini_file($_SERVER["DOCUMENT_ROOT"]."/../cgi-bin/config.ini",false,INI_SCANNER_RAW);
 $url = $ini["url"];
