@@ -8,7 +8,7 @@
  */
 ini_set("error_reporting",0);
 session_start();
-$ini = parse_ini_file("../config.ini",false,INI_SCANNER_RAW);
+$ini = parse_ini_file($_SERVER["DOCUMENT_ROOT"]."/../cgi-bin/config.ini",false,INI_SCANNER_RAW);
 $url = $ini["url"];
 
 if(!isset($_SESSION["isLoggedIn"]) || $_SESSION["isLoggedIn"] !== true){

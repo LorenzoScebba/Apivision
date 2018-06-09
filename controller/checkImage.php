@@ -8,14 +8,12 @@
 
 
 // <editor-fold defaultstate="collapsed" desc="Settings">
-require $_SERVER["DOCUMENT_ROOT"]."/APIVision". "/vendor/autoload.php";
-use MicrosoftAzure\Storage\Blob\BlobRestProxy;
 include 'isLoggedIn.php';
-include '../model/config.php';
+$ini = parse_ini_file($_SERVER["DOCUMENT_ROOT"]."/../cgi-bin/config.ini",false,INI_SCANNER_RAW);
+require $ini["root"] . "/vendor/autoload.php";
+use MicrosoftAzure\Storage\Blob\BlobRestProxy;
 ini_set('display_errors', '1');
 // </editor-fold>
-$ini = parse_ini_file("../config.ini",false,INI_SCANNER_RAW);
-$url = $ini["url"];
 // <editor-fold defaultstate="collapsed" desc="Get image and save it to img folder temp">
 
 if (!isset($_FILES['image']) || !is_uploaded_file($_FILES['image']['tmp_name'])) {
@@ -23,8 +21,7 @@ if (!isset($_FILES['image']) || !is_uploaded_file($_FILES['image']['tmp_name']))
     die();
 }
 
-$uploaddir = $_SERVER["DOCUMENT_ROOT"]."/APIVision" . "/img/";
-echo $uploaddir;
+$uploaddir = $ini["root"] . "/img/";
 $userfile_tmp = $_FILES['image']['tmp_name'];
 $userfile_name = rand(0,PHP_INT_MAX).$_FILES['image']['name'];
 
@@ -40,7 +37,7 @@ if (!move_uploaded_file($userfile_tmp, $uploaddir . $userfile_name)) {
 $connectionString = "DefaultEndpointsProtocol=https;AccountName=aristogattibd22;AccountKey=".$ini["account_key"];
 $blobClient = BlobRestProxy::createBlobService($connectionString);
 
-$imgpath = $_SERVER["DOCUMENT_ROOT"]."/APIVision/img/" . $userfile_name;
+$imgpath = $ini["root"] ."/img/" . $userfile_name;
 $content = fopen($imgpath, "r");
 $blobClient->createBlockBlob("vision", $userfile_name, $content);
 
@@ -95,7 +92,7 @@ $result = $connection->query("Insert into img(path,isAdult,isRacist,description,
 
 if ($result) {
     echo "Done!";
-    header("Location: http://$url/upload.php");
+    header("Location: http://".$ini["url"]."/index.php");
     // <editor-fold defaultstate="collapsed" desc="Remove tmp image">
     array_map('unlink', glob("../img/" . $userfile_name));
     // </editor-fold>

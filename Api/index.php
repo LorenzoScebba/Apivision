@@ -8,7 +8,7 @@
 
 $error_400 = (array('error' => true, 'code' => '400','suggestion' => "try something else :("));
 $error_401 = (array('error' => true, 'code' => '401','suggestion' => "try setting the hello parameter to true"));
-$ini = parse_ini_file("../config.ini",false,INI_SCANNER_RAW);
+$ini = parse_ini_file($_SERVER["DOCUMENT_ROOT"]."/../cgi-bin/config.ini",false,INI_SCANNER_RAW);
 
 header("Content-Type: application/json");
 
