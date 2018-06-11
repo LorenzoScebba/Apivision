@@ -14,7 +14,7 @@
         <br>
         <div>
         <p>
-            <script src="https://pastebin.com/embed_js/fCqWNBxD"></script>
+            <script src="https://pastebin.com/embed_js/ZPeVz5Wv"></script>
         </p>
         <p>
             Upload image to blob folder.
@@ -23,7 +23,7 @@
         <hr>
         <div>
             <p>
-                <script src="https://pastebin.com/embed_js/bYEiFB0h"></script>
+                <script src="https://pastebin.com/embed_js/wJ94eTys"></script>
             </p>
             <p>
                 Get image properties.
@@ -41,7 +41,7 @@
         <hr>
         <div>
             <p>
-                <script src="https://pastebin.com/embed_js/Zbus8yuf"></script>
+                <script src="https://pastebin.com/embed_js/Arjg52g7"></script>
             </p>
             <p>
                 Get searched images.
