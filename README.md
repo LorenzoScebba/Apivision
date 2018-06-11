@@ -1,9 +1,18 @@
 # APIVision
 
-Demo : http://scaleway.scebba.info/index.php
+Demo : http://scaleway.scebba.info/index.php 
 
-Add a config.ini file in a private folder (cgi-bin), one level below the web folder.
-Setup :
+# Directory Structure
+```
+"C:\xampp\" OR "/var/www/"
+│
+|---WebFolder
+|   └──Everything from the github repo
+|
+|---cgi-bin
+    └──config.ini
+```
+# Config.ini
 
 [Data]\
 account_key = ""\
