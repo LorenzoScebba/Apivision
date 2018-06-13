@@ -1,5 +1,16 @@
 <div class="container">
 <?php
+$offset = 0;
+if(isset($_GET["page"])){
+    if(is_numeric($_GET["page"])){
+        $offset = $_GET["page"];
+    }else{
+        $offset = 0;
+    }
+}
+
+if($offset>0)
+    $offset*=10;
 
 $connection = mysqli_connect($ini["dbname"], $ini["dbusername"], $ini["dbpassword"], $ini["dbtable"]);
 if (!$connection) {
@@ -9,7 +20,7 @@ if (!$connection) {
     die();
 }
 
-$result = $connection->query("Select path from img where 1");
+$result = $connection->query("Select path from img where 1 Limit 10 offset $offset");
 $images = array();
 
 while($row = $result->fetch_assoc()){
