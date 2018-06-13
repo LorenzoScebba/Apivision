@@ -13,7 +13,14 @@
     if (isset($_GET['search'])) {
         $desc = $_GET['search'];
     }
-    $result = $connection->query("Select path from img where description like '%$desc%' OR tags like '%$desc%'");
+
+    $desc = "%$desc%";
+
+    $sql ="Select path from img where description like ? OR tags like ?";
+    $statement = $connection->prepare($sql);
+    $statement->bind_param("ss",$desc,$desc);
+    $statement->execute();
+    $result = $statement->get_result();
 
     $images = array();
 
@@ -24,7 +31,11 @@
     if (!empty($images)) {
         foreach ($images as $image) {
             $description = "";
-            $result = $connection->query("Select * from img where path = '$image'");
+            $sql = "Select * from img where path = ?";
+            $statement = $connection->prepare($sql);
+            $statement->bind_param("s",$image);
+            $statement->execute();
+            $result = $statement->get_result();
             $row = $result->fetch_assoc();
             $description = $description . $row["description"] . "<br>";
             //$description = $description.$row["tags"];
