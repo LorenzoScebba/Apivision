@@ -8,7 +8,7 @@
             <a class="nav-link active" href="api.php">Api</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link active" href="code.php">Code Behind</a>
+            <a class="nav-link active" href="code.php">Code Snippets</a>
         </li>
 
 
