@@ -18,7 +18,11 @@ while($row = $result->fetch_assoc()){
 
 foreach ($images as $image) {
     $description = "";
-    $result = $connection->query("Select * from img where path = '$image'");
+    $sql = "Select * from img where path = ?";
+    $statement = $connection->prepare($sql);
+    $statement->bind_param("s",$image);
+    $statement->execute();
+    $result = $statement->get_result();
     $row = $result->fetch_assoc();
     $description = $description . $row["description"];
     echo "<figure class=\"figure\" style='margin: 0 5px;'>
