@@ -8,7 +8,7 @@ if(isset($_GET["page"])){
         $offset = 0;
     }
 }
-
+$page = $offset;
 if($offset>0)
     $offset*=10;
 
@@ -43,4 +43,10 @@ foreach ($images as $image) {
 
 }
 ?>
+    <br><br>
+    <div class="text-center">
+        <a class="btn btn-primary <?php if($page == 0) echo "disabled" ?>" href="?page=<?php echo $page-1 ?>"><b>Previous Page</b></a>
+        <a class="btn btn-primary <?php if($page > 0 && sizeof($images) < 10) echo "disabled" ?>" href="?page=<?php echo $page+1 ?>"><b>Next Page</b></a>
+    </div>
 </div>
+
