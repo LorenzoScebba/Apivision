@@ -19,8 +19,13 @@ if (!$connection) {
 
 $username = $_POST["username"];
 $password = sha1($_POST["password"]);
+$sql = "Select * from user where username = ? and password = ?";
 
-$result = $connection->query("Select * from user where username = '$username' and password = '$password'");
+$statement = $connection->prepare($sql);
+$statement->bind_param("ss",$username,$password);
+$statement->execute();
+
+$result = $statement->get_result();
 if($result->num_rows > 0){
     //User exist
     $_SESSION["isLoggedIn"] = true;
