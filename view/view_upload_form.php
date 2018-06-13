@@ -1,6 +1,6 @@
 <div class="container">
     <main>
-        <form action="controller/checkImage.php" method="post" enctype="multipart/form-data" multiple="multiple">
+        <form action="controller/checkImage.php" method="post" enctype="multipart/form-data">
             <div class="form-group ">
                 <label for="image">Image : </label>
                 <input type="file" name="image" id="image" class="form-control" >
