@@ -88,8 +88,11 @@ if (!$connection) {
     die();
 }
 $path = "https://aristogattibd22.blob.core.windows.net/vision/" . $userfile_name;
-$result = $connection->query("Insert into img(path,isAdult,isRacist,description,tags) VALUES('$path',$adult,$racist,'$desc','$tags')");
-
+$sql = "Insert into img(path,isAdult,isRacist,description,tags) VALUES(?,?,?,?,?)";
+$statement = $connection->prepare($sql);
+$statement->bind_param("siiss",$path,$adult,$racist,$desc,$tags);
+$statement->execute();
+$result = $statement->get_result();
 if ($result) {
     echo "Done!";
     header("Location: http://".$ini["url"]."/index.php");
