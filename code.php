@@ -32,7 +32,7 @@
         <hr>
         <div>
             <p>
-                <script src="https://pastebin.com/embed_js/3ewbEVXg"></script>
+                <script src="https://pastebin.com/embed_js/ppafj9ZM"></script>
             </p>
             <p>
                 Get all images as an array of urls.
