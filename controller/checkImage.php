@@ -91,8 +91,7 @@ $path = "https://aristogattibd22.blob.core.windows.net/vision/" . $userfile_name
 $sql = "Insert into img(path,isAdult,isRacist,description,tags) VALUES(?,?,?,?,?)";
 $statement = $connection->prepare($sql);
 $statement->bind_param("siiss",$path,$adult,$racist,$desc,$tags);
-$statement->execute();
-$result = $statement->get_result();
+$result = $statement->execute();
 if ($result) {
     echo "Done!";
     header("Location: http://".$ini["url"]."/index.php");
