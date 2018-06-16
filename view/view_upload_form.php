@@ -3,7 +3,7 @@
         <form action="controller/checkImage.php" method="post" enctype="multipart/form-data">
             <div class="form-group ">
                 <label for="image">Image : </label>
-                <input type="file" name="image" id="image" class="form-control" >
+                <input type="file" name="image" id="image" class="form-control" required>
                 <small id="passwordHelp" class="form-text text-muted">Upload your image here!
                 </small>
             </div>
