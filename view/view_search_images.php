@@ -16,7 +16,7 @@
 
     $desc = "%$desc%";
 
-    $sql ="Select path from img where description like ? OR tags like ?";
+    $sql ="Select * from img where description like ? OR tags like ?";
     $statement = $connection->prepare($sql);
     $statement->bind_param("ss",$desc,$desc);
     $statement->execute();
@@ -24,24 +24,15 @@
 
     $images = array();
 
-    while ($row = $result->fetch_assoc()) {
-        array_push($images, $row["path"]);
+    while($row = $result->fetch_assoc()){
+        array_push($images, array($row["path"],$row["description"]));
     }
 
     if (!empty($images)) {
         foreach ($images as $image) {
-            $description = "";
-            $sql = "Select * from img where path = ?";
-            $statement = $connection->prepare($sql);
-            $statement->bind_param("s",$image);
-            $statement->execute();
-            $result = $statement->get_result();
-            $row = $result->fetch_assoc();
-            $description = $description . $row["description"] . "<br>";
-            //$description = $description.$row["tags"];
             echo "<figure class=\"figure\" style='margin: 0 5px;'>
-          <a href='$image' target='_blank'><img src=\"$image\" class=\"figure-img img-fluid rounded\" style='height: 200px;'></a>
-          <figcaption class=\"figure-caption\">$description</figcaption>
+          <a href='$image[0]' target='_blank'><img src=\"$image[0]\" class=\"figure-img img-fluid rounded\" style='height: 200px;'></a>
+          <figcaption class=\"figure-caption\">$image[1]</figcaption>
           </figure>";
 
         }
