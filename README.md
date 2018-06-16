@@ -1,16 +1,23 @@
 # APIVision
 
-Demo : http://scaleway.scebba.info/index.php 
+Demo : http://scaleway.scebba.info
 
 # Directory Structure
 ```
 "C:\xampp\" OR "/var/www/"
 │
-|---WebFolder
-|   └──Everything from the github repo
+|---WebFolder (chmod 755)
+|   └──Api
+|   └──controller
+|   └──css
+|   └──img (chown www:data:www-data)
+|   └──js
+|   └──model
+|   └──vendor
+|   └──view
 |
 |---cgi-bin
-    └──config.ini
+    └──config.ini (chmod 755)
 ```
 # Config.ini
 
@@ -21,5 +28,7 @@ dbname = "" \
 dbusername = "" \
 dbpassword = "" \
 dbtable = "" \
-url = "" (example : localhost,localhost/folder)\
-root = "" (example : root = "C:/xampp/htdocs")
+url = "" \
+root = "" 
+
+Download example [config.ini](https://pastebin.com/dl/av4PDFxW) with **fake data**
