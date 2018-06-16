@@ -20,6 +20,16 @@ if (!$connection) {
     die();
 }
 
+$count = $connection->query("Select count(*) as cnt from img");
+$count = $count->fetch_assoc();
+$count = $count["cnt"];
+if($offset > $count){
+    $offset = intval($count/10);
+    $page = $offset;
+    $_GET["page"] = $page;
+    $offset = $offset*10;
+}
+
 $result = $connection->query("Select * from img where 1 Limit 10 offset $offset");
 $images = array();
 
