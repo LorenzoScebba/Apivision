@@ -1,6 +1,6 @@
 # APIVision
 
-Demo : http://scaleway.scebba.info
+Demo : http://scaleway.scebba.info/vision
 
 # Directory Structure
 ```
