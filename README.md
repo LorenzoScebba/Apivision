@@ -1,7 +1,5 @@
 # APIVision
 
-Demo : http://scaleway.scebba.info/vision
-
 # Directory Structure
 ```
 "C:\xampp\" OR "/var/www/"
